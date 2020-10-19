@@ -1,9 +1,16 @@
 module Trestle
   class Toolbar
-    require_relative "toolbar/builder"
-    require_relative "toolbar/context"
-    require_relative "toolbar/item"
-    require_relative "toolbar/menu"
+    extend ActiveSupport::Autoload
+
+    autoload :Builder
+    autoload :Context
+    autoload :Menu
+
+    autoload_at "trestle/toolbar/item" do
+      autoload :Button
+      autoload :Dropdown
+      autoload :Link
+    end
 
     def initialize(builder=Builder)
       @builder = builder

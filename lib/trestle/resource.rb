@@ -1,9 +1,11 @@
 module Trestle
   class Resource < Admin
-    require_relative "resource/adapter_methods"
-    require_relative "resource/builder"
-    require_relative "resource/collection"
-    require_relative "resource/toolbar"
+    extend ActiveSupport::Autoload
+
+    autoload :AdapterMethods
+    autoload :Builder
+    autoload :Collection
+    autoload :Toolbar
 
     include AdapterMethods
 

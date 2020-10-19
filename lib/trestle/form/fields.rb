@@ -1,15 +1,47 @@
 module Trestle
   class Form
     module Fields
-      require_relative "fields/form_control"
-      require_relative "fields/form_group"
+      extend ActiveSupport::Autoload
 
-      require_relative "fields/date_picker"
+      eager_autoload do
+        autoload :FormControl
+        autoload :FormGroup
 
-      require_relative "fields/check_box_helpers"
-      require_relative "fields/radio_button_helpers"
+        autoload :DatePicker
 
-      Dir.glob("#{__dir__}/fields/*.rb") { |f| require_relative f }
+        autoload :CheckBoxHelpers
+        autoload :RadioButtonHelpers
+
+        autoload :CheckBox
+        autoload :CollectionCheckBoxes
+        autoload :CollectionRadioButtons
+        autoload :CollectionSelect
+        autoload :ColorField
+        autoload :DateField
+        autoload :DateSelect
+        autoload :DatetimeField
+        autoload :DatetimeSelect
+        autoload :EmailField
+        autoload :FileField
+        autoload :GroupedCollectionSelect
+        autoload :MonthField
+        autoload :NumberField
+        autoload :RadioButton
+        autoload :RangeField
+        autoload :SearchField
+        autoload :Select
+        autoload :StaticField
+        autoload :TagSelect
+        autoload :TelephoneField
+        autoload :TextArea
+        autoload :TextField
+        autoload :TimeField
+        autoload :TimeSelect
+        autoload :TimeZoneSelect
+        autoload :UrlField
+        autoload :PasswordField
+        autoload :WeekField
+      end
     end
   end
 end

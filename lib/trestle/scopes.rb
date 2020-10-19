@@ -1,7 +1,9 @@
 module Trestle
   class Scopes
-    require_relative "scopes/block"
-    require_relative "scopes/scope"
+    extend ActiveSupport::Autoload
+
+    autoload :Block
+    autoload :Scope
 
     attr_reader :admin, :blocks
 

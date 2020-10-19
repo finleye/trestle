@@ -1,8 +1,11 @@
 module Trestle
   class Navigation
-    require_relative "navigation/block"
-    require_relative "navigation/item"
-    require_relative "navigation/group"
+    extend ActiveSupport::Autoload
+
+    autoload :Block
+    autoload :Item
+    autoload :Group
+    autoload :NullGroup, "trestle/navigation/group"
 
     attr_reader :items
 

@@ -1,29 +1,31 @@
-require_relative "trestle/version"
+require "trestle/version"
 
 require "active_support/all"
 require "kaminari"
 
 module Trestle
-  require_relative "trestle/evaluation_context"
-  require_relative "trestle/builder"
-  require_relative "trestle/hook"
-  require_relative "trestle/toolbar"
-  require_relative "trestle/adapters"
-  require_relative "trestle/attribute"
-  require_relative "trestle/breadcrumb"
-  require_relative "trestle/configurable"
-  require_relative "trestle/configuration"
-  require_relative "trestle/display"
-  require_relative "trestle/form"
-  require_relative "trestle/model_name"
-  require_relative "trestle/navigation"
-  require_relative "trestle/options"
-  require_relative "trestle/reloader"
-  require_relative "trestle/scopes"
-  require_relative "trestle/tab"
-  require_relative "trestle/table"
-  require_relative "trestle/admin"
-  require_relative "trestle/resource"
+  extend ActiveSupport::Autoload
+
+  autoload :Adapters
+  autoload :Admin
+  autoload :Attribute
+  autoload :Breadcrumb
+  autoload :Builder
+  autoload :Configurable
+  autoload :Configuration
+  autoload :Display
+  autoload :EvaluationContext
+  autoload :Form
+  autoload :Hook
+  autoload :ModelName
+  autoload :Navigation
+  autoload :Options
+  autoload :Reloader
+  autoload :Resource
+  autoload :Scopes
+  autoload :Tab
+  autoload :Table
+  autoload :Toolbar
 
   mattr_accessor :admins
   self.admins = {}
@@ -70,4 +72,4 @@ module Trestle
   end
 end
 
-require_relative "trestle/engine" if defined?(Rails)
+require "trestle/engine" if defined?(Rails)

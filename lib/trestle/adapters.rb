@@ -2,7 +2,7 @@ module Trestle
   module Adapters
     extend ActiveSupport::Autoload
 
-    require_relative "adapters/adapter"
+    autoload :Adapter
 
     autoload :ActiveRecordAdapter
     autoload :DraperAdapter
